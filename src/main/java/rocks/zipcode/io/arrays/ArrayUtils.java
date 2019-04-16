@@ -1,5 +1,11 @@
 package rocks.zipcode.io.arrays;
 
+import javax.xml.stream.events.Characters;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 /**
  * @author leon on 24/01/2019.
  */
@@ -10,7 +16,14 @@ public class ArrayUtils {
      * @return array of all integers between `start` and `stop`
      */
     public static Integer[] getRange(Integer start, Integer end) {
-        return null;
+        if(end < start)
+            return null;
+
+        Integer[] ret = new Integer[++end - start];
+        for (int i=0; start < end; )
+            ret[i++] = start++;
+        return ret;
+
     }
 
     /**
@@ -18,7 +31,15 @@ public class ArrayUtils {
      * @return array with identical contents in primitive-array form
      */
     public static char[] unbox(Character[] array) {
-        return null;
+
+        char[] unbox = new char[array.length];
+        for (int i=0; i<unbox.length; i++){
+            unbox[i] = array[i];
+        }
+
+
+        return unbox;
+
     }
 
     /**
@@ -26,6 +47,11 @@ public class ArrayUtils {
      * @return array with identical contents in nonprimitive-array form
      */
     public static Character[] box(char[] array) {
-        return null;
+        Character[] box = new Character[array.length];
+        for (int i = 0; i < box.length; i++) {
+            box[i] = array[i];
+        }
+        return box;
+
     }
 }
