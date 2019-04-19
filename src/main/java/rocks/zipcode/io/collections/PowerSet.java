@@ -12,6 +12,7 @@ public class PowerSet<TypeOfSet> {
     protected final Set<TypeOfSet> originalSet;
 
     public PowerSet(TypeOfSet[] originalSet) {
+
         this.originalSet = new HashSet<>(Arrays.asList(originalSet));
     }
 

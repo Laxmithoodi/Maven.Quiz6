@@ -17,21 +17,20 @@ public enum TVChannel {
     CBS;
 
 
-    private static Object MyObj;
+
 
     /**
      * @param ordinal; ordinal of the expected enumeration
      * @return enumeration with respective ordinal
+     *
      */
     public static TVChannel getByOrdinal(Integer ordinal) {
+        return TVChannel.values()[ordinal];
 
-
-    for(TVChannel tv : TVChannel.values()) {
-        if (tv == MSN )
-            return MSN;
-
-    }
-            return CBS;
+//
+//        TVChannel[] arr = TVChannel.values();
+//
+//            return arr[ordinal];
 
     }
 

@@ -2,23 +2,33 @@ package rocks.zipcode.io.objectorientation;
 
 public class Television {
 
-    private Integer channel;
+  //  private Integer channel;
     private String name;
+    private  boolean on;
+    private TVChannel channel;
 
 
 
     public void turnOn() {
+        on =true;
+
     }
 
     public Television() {
     }
 
-    public TVChannel getChannel() {
-        return TVChannel.getByOrdinal(channel);
+    public TVChannel getChannel()
+    {
+        return channel;
     }
 
-    public void setChannel(Integer channel) {
-        this.channel = channel;
+    public void setChannel(Integer channelNumber) {
+        if (on) {
+
+            channel = TVChannel.getByOrdinal(channelNumber);
+        } else {
+            throw new IllegalStateException();
+        }
     }
 
     public String getName() {
@@ -29,10 +39,4 @@ public class Television {
         this.name = name;
     }
 
-    //    public void setChannel(Integer channel) {
-//    }
-//
-//    public TVChannel getChannel() {
-//        return null;
-//    }
 }

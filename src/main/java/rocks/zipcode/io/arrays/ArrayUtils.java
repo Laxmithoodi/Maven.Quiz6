@@ -1,6 +1,7 @@
 package rocks.zipcode.io.arrays;
 
 import javax.xml.stream.events.Characters;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,13 +17,22 @@ public class ArrayUtils {
      * @return array of all integers between `start` and `stop`
      */
     public static Integer[] getRange(Integer start, Integer end) {
-        if(end < start)
-            return null;
 
-        Integer[] ret = new Integer[++end - start];
-        for (int i=0; start < end; )
-            ret[i++] = start++;
-        return ret;
+        List<Integer> list = new ArrayList<>();
+
+        for(int i= start; i<=end; i++){
+            list.add(i);
+        }
+        return list.toArray(new Integer[list.size()]);
+
+//
+//        if(end < start)
+//            return null;
+//
+//        Integer[] ret = new Integer[++end - start];
+//        for (int i=0; start < end; )
+//            ret[i++] = start++;
+//        return ret;
 
     }
 
@@ -47,11 +57,12 @@ public class ArrayUtils {
      * @return array with identical contents in nonprimitive-array form
      */
     public static Character[] box(char[] array) {
+
         Character[] box = new Character[array.length];
-        for (int i = 0; i < box.length; i++) {
+        for(int i=0; i<box.length; i++){
             box[i] = array[i];
         }
-        return box;
 
+        return box;
     }
 }
